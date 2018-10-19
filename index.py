@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, json
 app = Flask(__name__)
 
 @app.route("/home")
@@ -33,9 +33,13 @@ def onetenEO():
 def onetenET():
         return render_template("onetenET.html")
 
-@app.route("/onetenEH")
-def onetenEH():
-        return render_template("onetenEH.html")
+@app.route("/petrol")
+def petrol():
+        return render_template("petrol.html")
+
+@app.route("/diesel")
+def diesel():
+	return render_template("diesel.html")
 
 @app.route("/defender")
 def defender():
@@ -53,3 +57,6 @@ def defenderET():
 def defenderEH():
         return render_template("defenderEH.html")
 
+@app.errorhandler(404)
+def page_not_found(error):
+	return render_template("error.html"), 404
