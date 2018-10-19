@@ -57,6 +57,9 @@ def defenderET():
 def defenderEH():
         return render_template("defenderEH.html")
 
+@app.route("/onetenEH")
+def onetenEH():
+	return render_template("onetenEH.html")
 @app.errorhandler(404)
 def page_not_found(error):
 	return render_template("error.html"), 404
